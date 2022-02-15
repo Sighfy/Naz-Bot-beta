@@ -59,37 +59,16 @@ async def start(ctx):
   join_count = 0
   i = []
 
-  async def miniboss(i, join_count):
+  async def miniboss(i):
     mb_list = ' '.join(i)
     await ctx.send('`rpg miniboss ' + mb_list + '`')
-
-    '''
-    if join_count == 1:
-      await ctx.send('`rpg miniboss ' + mb_list + '`')
-    elif join_count == 2:
-      await ctx.send('`rpg miniboss ' + mb_list + '`')
-    elif join_count == 3:
-      await ctx.send('`rpg miniboss ' + i[0] + i[1] + i[2] + '`')
-    elif join_count == 4:
-      await ctx.send('`rpg miniboss ' + i[0] + i[1] + i[2] + i[3]+ '`')
-    elif join_count == 5:
-      await ctx.send('`rpg miniboss ' + i[0] + i[1] + i[2] + i[3] + i[4] + '`')
-    elif join_count == 6:
-      await ctx.send('`rpg miniboss ' + i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + '`')
-    elif join_count == 7:
-      await ctx.send('`rpg miniboss ' + i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6] + '`')
-    elif join_count == 8:
-      await ctx.send('`rpg miniboss ' + i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6] + i[7] + '`')
-    elif join_count == 9:
-      await ctx.send('`rpg miniboss ' + i[0] + i[1] + i[2] + i[3] + i[4] + i[5] + i[6] + i[7] + i[8] + '`')
-    '''
   
   # check the join input
   def check(msg):
     return msg.channel == ctx.channel and \
     msg.content.lower() in ['join', 'stop']
 
-  while join_count < 10:
+  while True:
     if join_count != 9:
 
       # it was here but works better to iteratte in the join flag
@@ -109,12 +88,12 @@ async def start(ctx):
         # sends how many people typed join (debug purposes)
         #await ctx.send(join_count)
         # passes the array and join_count to boss for partially filled output
-        await miniboss(i, join_count)
+        await miniboss(i)
         # sends the full array for checks (debug purposes)
         #await ctx.send(i)
         break
     else:
-      await miniboss(i, join_count)
+      await miniboss(i)
       join_count += 1
 
     
