@@ -123,6 +123,11 @@ async def startarena(ctx):
     return msg.channel == ctx.channel and \
     msg.content.lower() in ['a in', 'a out']
 
+  async def arena(a):
+    a_list = ' '.join(a)
+    await ctx.send('`rpg arena ' + a_list + '`')
+
+
   while True:
     if join_count != 10:
 
@@ -155,8 +160,11 @@ async def startarena(ctx):
           await ctx.send(arena_id + ', you are not in the list')
 
         await arenamsg(ctx, a)
-    else: 
+    else:
+      await arena(a)
       join_count = 0
+      await startarena(ctx)
+      break
 
                   
 
