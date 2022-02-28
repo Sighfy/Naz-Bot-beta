@@ -148,7 +148,7 @@ async def startarena(ctx):
 
       elif msg.content.lower() == 'a out':
         if arena_id in a:
-          print(a.index(arena_id))
+          # print(a.index(arena_id))
           # await ctx.send(a.index(arena_id))
           rem_arenaindex = (a.index(arena_id))
           # await ctx.send(rem_arenaindex)
@@ -173,5 +173,5 @@ async def startarena(ctx):
 # delete previous message?
 # await ctx. message. delete()
 
-#keep_alive() # runs the webserver
+keep_alive() # runs the webserver
 bot.run(os.getenv('shush'))  #just a trade secret
